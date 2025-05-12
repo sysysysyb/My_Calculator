@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- 마우스 event 담당 컨테이너 -->
+    <div class="frame">
+    <!-- 계산기 전체 컨테이너 -->
+        <div class="calculator-container">
+            <div class="light"></div>
+
+            <!-- 계산 결과 화면 -->
+            <div class="display-container">0</div>
+
+            <!-- 버튼들 -->
+            <div class="buttons-container">
+                <button class="button function clear line1">C</button>
+                <button class="button function line1">±</button>
+                <button class="button function line1">%</button>
+                <button class="button operator line1">/</button>
+
+                <button class="button number line2">7</button>
+                <button class="button number line2">8</button>
+                <button class="button number line2">9</button>
+                <button class="button operator line2">*</button>
+
+                <button class="button number line3">4</button>
+                <button class="button number line3">5</button>
+                <button class="button number line3">6</button>
+                <button class="button operator line3">-</button>
+
+                <button class="button number line4">1</button>
+                <button class="button number line4">2</button>
+                <button class="button number line4">3</button>
+                <button class="button operator line4">+</button>
+
+                <button class="button number zero line5">0</button>
+                <button class="button point line5">.</button>
+                <button class="button equals-btn line5">=</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
