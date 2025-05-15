@@ -1,5 +1,5 @@
-## Calculator 만들기
+## Calculator Project
 
-html, css, js를 이용해서 계산기를 만들고 vercel로 배포함
+🎉 Calculator Project는 HTML, CSS, JavaScript를 이용해 간단한 계산기 기능을 구현한 웹 애플리케이션입니다. 기본적인 사칙연산 및 다양한 스타일링 기능을 포함하여 사용자에게 직관적이고 간편한 계산 경험을 제공합니다.
 
-링크 : [sybcalculator](https://sybcalculator.vercel.app/)
+<a href='https://sybcalculator.vercel.app/' target='_blank>Syb Calculator</a>
