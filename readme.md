@@ -2,4 +2,4 @@
 
 🎉 Calculator Project는 HTML, CSS, JavaScript를 이용해 간단한 계산기 기능을 구현한 웹 애플리케이션입니다. 기본적인 사칙연산 및 다양한 스타일링 기능을 포함하여 사용자에게 직관적이고 간편한 계산 경험을 제공합니다.
 
-<a href='https://sybcalculator.vercel.app/' target='_blank>Syb Calculator</a>
+<a href='https://sybcalculator.vercel.app/' target='_blank'>Syb Calculator</a>
