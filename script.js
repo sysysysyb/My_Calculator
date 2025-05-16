@@ -1,20 +1,30 @@
-// 3-1단계
 const buttons = document.querySelectorAll('.button');
+const displayContainer = document.querySelector('.display-container');
+const point = document.querySelector('.point');
+const clear = document.querySelector('.clear');
+const operators = document.querySelectorAll('.operator');
+const equalsBtn = document.querySelector('.equals-btn');
 
+let firstOperand = null;
+let secondOperand = null;
+let operator = null;
+let result = 0;
+let isOperatorClicked = false;  // 가장 최근에 클릭한 버튼이 연산자인지 체크
+let isEqualsClicked = false;    // 가장 최근에 클릭한 버튼이 =인지 체크 
+
+/* -------------------- 기능 관련 -------------------- */
+// 버튼 클릭 잘 되는지 확인
 const printValue = (event) => {
-    // console.log(event.target.textContent);
+    console.log(event.target.textContent);
 };
 
 buttons.forEach((button) => button.addEventListener('click', printValue));
 
-// 3-2단계
-const displayContainer = document.querySelector('.display-container');
-
+// 계산기 버튼 클릭했을 때 화면의 숫자 변경하기
 const changeValue = (event) => {
-    // 가장 최근에 클릭한 버튼이 연산자라면 display 초기화
+    // 아직 아무 숫자도 입력하지 않았다면 or 가장 최근에 클릭한 버튼이 연산자 또는 = 라면 display 초기화
     if (displayContainer.textContent === '0' || isOperatorClicked || isEqualsClicked) {
         displayContainer.textContent = event.target.textContent;
-        // console.log(displayContainer);
         isOperatorClicked = false;
         isEqualsClicked = false;
     } else {
@@ -28,9 +38,7 @@ buttons.forEach((button) => {
     }
 });
 
-// 3단계 도전 과제
-const point = document.querySelector('.point');
-
+// . 버튼 클릭하면 화면의 숫자에 소수점 추가
 const addPoint = (event) => {
     if (displayContainer.textContent.includes('.') === false) {
         displayContainer.textContent += event.target.textContent;
@@ -39,8 +47,7 @@ const addPoint = (event) => {
 
 point.addEventListener('click', addPoint);
 
-const clear = document.querySelector('.clear');
-
+// C 버튼 누르면 화면의 숫자 및 선언된 변수들의 값 모두 초기화
 const clearDisplay = () => {
     displayContainer.textContent = 0;
     firstOperand = null;
@@ -48,19 +55,13 @@ const clearDisplay = () => {
     operator = null;
     isOperatorClicked = false;
     isEqualsClicked = false;
-    console.log('firstOperand : ' + firstOperand, 'secondOperand : ' + secondOperand, 'operator : ' + operator);
 };
 
 clear.addEventListener('click', clearDisplay);
 
-// 4-1 단계
-let firstOperand = null;
-let secondOperand = null;
-let operator = null;
-let isOperatorClicked = false;  // 가장 최근에 클릭한 버튼이 연산자인지 체크
-
-const operators = document.querySelectorAll('.operator');
-
+// 연산자 버튼을 눌렀을 때 화면의 숫자와 연산자를 변수에 저장
+/* 연산자를 이미 클릭한 상태에서 또 클릭한다면 이전에 저장한 숫자와 현재 화면의 숫자를 계산하고
+그것을 다시 첫번째 피연산자 변수에 저장해서 이어서 계산하기*/
 const clickOperator = (event) => {
     if (firstOperand === null) {
         firstOperand = displayContainer.textContent;
@@ -82,11 +83,7 @@ operators.forEach((element) => {
     element.addEventListener('click', clickOperator);
 });
 
-// 4-2단계
-let result = 0;
-
-const equalsBtn = document.querySelector('.equals-btn');
-
+// = 버튼을 눌렀을 때 저장된 피연산자들과 연산자 값으로 계산
 const calculate = (firstNum = 0, secondNum, op) => {
     console.log(firstNum, op, secondNum);
     switch (op) {
@@ -115,15 +112,13 @@ const calculate = (firstNum = 0, secondNum, op) => {
 
 const saveSecAndCalc = () => {
     secondOperand = displayContainer.textContent;
-    let result = calculate(parseFloat(firstOperand), parseFloat(secondOperand), operator);
+    let result = calculate(Number(firstOperand), Number(secondOperand), operator);
     displayContainer.textContent = Number(result.toFixed(2));
 };
 
 equalsBtn.addEventListener('click', saveSecAndCalc);
 
-// 4단계 도전 미션
-let isEqualsClicked = false;  // 가장 최근에 클릭한 버튼이 =인지 체크
-
+/* -------------------- 스타일 관련 -------------------- */
 // 계산기에 3D 느낌 추가하기
 const frame = document.querySelector('.frame');
 const calculatorContainer = document.querySelector('.calculator-container');
