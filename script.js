@@ -4,6 +4,7 @@ const point = document.querySelector('.point');
 const clear = document.querySelector('.clear');
 const operators = document.querySelectorAll('.operator');
 const equalsBtn = document.querySelector('.equals-btn');
+const sign = document.querySelector('.sign');
 
 let firstOperand = null;
 let secondOperand = null;
@@ -120,6 +121,13 @@ const saveSecAndCalc = () => {
 };
 
 equalsBtn.addEventListener('click', saveSecAndCalc);
+
+// ± 버튼을 눌렀을 때 부호 변경
+const changeSign = () => {
+    displayContainer.textContent *= -1;
+};
+
+sign.addEventListener('click', changeSign);
 
 /* -------------------- 스타일 관련 -------------------- */
 // 계산기에 3D 느낌 추가하기
