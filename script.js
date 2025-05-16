@@ -94,10 +94,10 @@ const calculate = (firstNum = 0, secondNum, op) => {
         case '-':
             result = firstNum - secondNum;
             break;
-        case '*':
+        case 'x':
             result = firstNum * secondNum;
             break;
-        case '/':
+        case '÷':
             result = firstNum / secondNum;
             break;
         case '%':
