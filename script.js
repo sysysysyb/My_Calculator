@@ -99,6 +99,9 @@ const calculate = (firstNum = 0, secondNum, op) => {
         case '/':
             result = firstNum / secondNum;
             break;
+        case '%':
+            result = firstNum % secondNum;
+            break;
         default:
             return 'ERROR';
     }
